@@ -10,6 +10,7 @@ public class BlogWebApp1Application {
 		SpringApplication.run(BlogWebApp1Application.class, args);
 		//this comment is for when i am try again to push the updated code in git
 		//aditya 
+		
 	}
 
 }
