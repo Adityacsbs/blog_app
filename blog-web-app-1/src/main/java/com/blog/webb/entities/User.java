@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @Setter
-public class User{
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,18 +26,17 @@ public class User{
 	@Column(name="user_name", nullable= false, length= 100)
 	private String name;
 	
-	@Column(name="email",nullable = false)
+	
+	@SuppressWarnings("unused")
 	private String email;
 	
 	
 	private String about;
 	
-	@Column(name="password",nullable = false , length = 14)
+	
+	
 	private String password;
 	
 	
-	public static void main(String[] args) {
-   
-	}
-
+	
 }
