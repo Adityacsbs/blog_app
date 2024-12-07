@@ -21,6 +21,7 @@ public class UserDto {
 	
 	private String about;
 	
+	private long mobile_number;
 	
 	
 	private String password;

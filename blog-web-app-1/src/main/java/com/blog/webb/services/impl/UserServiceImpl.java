@@ -39,6 +39,8 @@ public class UserServiceImpl implements UserSer {
 		user.setAbout(userDto.getEmail());
 		user.setName(userDto.getName());
 		user.setPassword(userDto.getPassword());
+		user.setMobile_number(userDto.getMobile_number());
+		
 		
 		User updatedUser = this.userRepoo.save(user);
 		UserDto userDto1 = this.userToDto(updatedUser);
@@ -86,6 +88,7 @@ return userDtos;
 		user.setEmail(userdto.getEmail());
 		user.setAbout(userdto.getAbout());
 		user.setPassword(userdto.getPassword());
+		user.setMobile_number(userdto.getMobile_number());
 		
 		return user;
 		
@@ -101,6 +104,7 @@ return userDtos;
 		userDTo.setEmail(user.getEmail());
 		userDTo.setAbout(user.getAbout());
 		userDTo.setPassword(user.getPassword());
+		userDTo.setMobile_number(user.getMobile_number());
 		
 		
 		

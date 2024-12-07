@@ -24,14 +24,17 @@ public class User{
 	private int id;
 	
 	@Column(name="user_name", nullable= false, length= 100)
+	
 	private String name;
 	
 	
-	@SuppressWarnings("unused")
 	private String email;
 	
 	
 	private String about;
+	
+	
+	private long mobile_number;
 	
 	
 	
