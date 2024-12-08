@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import com.blog.webb.services.UserSer;
+
+import jakarta.validation.Valid;
+
 import com.blog.webb.payloads.*;
 
 @RestController
@@ -28,7 +31,7 @@ public class UserController {
 	
 	//post -create user
 	@PostMapping("/")
-	public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto){
+	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
 		
 		UserDto createdUserDto = this.userservice.createUser(userDto);
 		
@@ -38,7 +41,7 @@ public class UserController {
 	//put - update user
 	
 	@PutMapping("/{userId}")
-	public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto,@PathVariable("userId") Integer uid){
+	public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto,@PathVariable("userId") Integer uid){
 		
 	UserDto updatedUser = 	this.userservice.updateUser(userDto, uid);
 	

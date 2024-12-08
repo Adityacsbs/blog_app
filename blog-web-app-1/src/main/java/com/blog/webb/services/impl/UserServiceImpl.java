@@ -3,6 +3,7 @@ package com.blog.webb.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,9 @@ public class UserServiceImpl implements UserSer {
 	
 	@Autowired
 	private UserRepo userRepoo;
+	
+	@Autowired
+	private ModelMapper modelmapper;
 
 	@Override
 	public UserDto createUser(UserDto userDto) {
@@ -82,29 +86,33 @@ return userDtos;
 	
 	private User doToUser(UserDto userdto) {
 		
-		User user = new User();
-		user.setId(userdto.getId());
-		user.setName(userdto.getName());
-		user.setEmail(userdto.getEmail());
-		user.setAbout(userdto.getAbout());
-		user.setPassword(userdto.getPassword());
-		user.setMobile_number(userdto.getMobile_number());
+		User user = this.modelmapper.map(userdto, User.class) ;
+		
+		
+//		user.setId(userdto.getId());
+//		user.setName(userdto.getName());
+//		user.setEmail(userdto.getEmail());
+//		user.setAbout(userdto.getAbout());
+//		user.setPassword(userdto.getPassword());
+//		user.setMobile_number(userdto.getMobile_number());
 		
 		return user;
 		
 		
 	}
 	
+	//how model mapper works 
+	
 	public UserDto userToDto(User user) {
 		
-		UserDto userDTo = new UserDto();
+		UserDto userDTo =  this.modelmapper.map(user, UserDto.class)  ;
 		
-		userDTo.setId(user.getId());
-		userDTo.setName(user.getName());
-		userDTo.setEmail(user.getEmail());
-		userDTo.setAbout(user.getAbout());
-		userDTo.setPassword(user.getPassword());
-		userDTo.setMobile_number(user.getMobile_number());
+//		userDTo.setId(user.getId());
+//		userDTo.setName(user.getName());
+//		userDTo.setEmail(user.getEmail());
+//		userDTo.setAbout(user.getAbout());
+//		userDTo.setPassword(user.getPassword());
+//		userDTo.setMobile_number(user.getMobile_number());
 		
 		
 		
