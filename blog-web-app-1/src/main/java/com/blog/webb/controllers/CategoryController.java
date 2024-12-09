@@ -14,6 +14,8 @@ import com.blog.webb.payloads.ApiResp;
 import com.blog.webb.payloads.CategoryDto;
 import com.blog.webb.services.CategorySer;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/categories")
 
@@ -24,7 +26,7 @@ public class CategoryController {
 	
 	//create
 	@PostMapping("/")
-	public ResponseEntity<CategoryDto> createCategory(@RequestBody CategoryDto categorydto){
+	public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categorydto){
 		
 		CategoryDto createCategory = this.categoryService.createCategory(categorydto);
 		
@@ -34,7 +36,7 @@ public class CategoryController {
 	//update
 	
 	@PutMapping("/{catId}")
-	public ResponseEntity<CategoryDto> updateCategory(@RequestBody CategoryDto categorydto,@PathVariable Integer catId){
+	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categorydto,@PathVariable Integer catId){
 		
 		CategoryDto updateCategory = this.categoryService.updateCategory(categorydto,catId);
 		
